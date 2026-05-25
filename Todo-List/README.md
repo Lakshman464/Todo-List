@@ -1,56 +1,86 @@
-# ProjectFlow – Spring Boot + React Todo App
+# Todo List Application
 
-A full-stack project task manager with a Spring Boot REST API backend and React frontend.
-
-## Architecture
-
-```
-todo-app/
-├── backend/          ← Spring Boot (Java 17)
-│   └── src/main/java/com/todo/
-│       ├── model/        Project.java, Todo.java
-│       ├── repository/   ProjectRepository, TodoRepository (JPA)
-│       ├── service/      ProjectService, TodoService
-│       └── controller/   ProjectController, TodoController (REST)
-└── frontend/         ← React + Vite
-    └── src/
-        ├── App.jsx       All UI components
-        └── main.jsx      Entry point
-```
-
-## Tech Stack
-
-| Layer    | Tech                           |
-|----------|-------------------------------|
-| Backend  | Spring Boot 3.2, Spring Data JPA, Lombok |
-| Database | H2 in-memory (auto-configured) |
-| API      | RESTful JSON endpoints         |
-| Frontend | React 18, Vite                 |
-| Styling  | Inline CSS (zero dependencies) |
+A full-stack Todo List web application built with modern technologies for managing daily tasks efficiently.
 
 ---
 
-## Running the App
+## Features
 
-### 1. Start the Backend
+- User Authentication (Login/Register)
+- Create, Update, Delete Todos
+- Mark Tasks as Completed
+- Responsive UI
+- REST API Integration
+- MySQL Database Integration
+- Modern Frontend Design
 
-**Requirements:** Java 17+, Maven
+---
 
-```bash
-cd backend
-./mvnw spring-boot:run
-# or: mvn spring-boot:run
+## Tech Stack
+
+### Frontend
+- React.js
+- Vite
+- HTML5
+- CSS3
+- JavaScript
+
+### Backend
+- Spring Boot
+- Java
+- REST APIs
+
+### Database
+- MySQL
+
+---
+
+# Project Screenshots
+
+## All Tasks
+![All Tasks](screenshots/home.png)
+
+---
+
+## Active Tasks
+![Active Tasks](screenshots/active.png)
+
+---
+
+## Completed Tasks
+![Completed Tasks](screenshots/done.png)
+
+---
+
+## Folder Structure
+
+```text
+Todo-List/
+│
+├── frontend/
+├── backend/
+├── screenshots/
+│   ├── home.png
+│   ├── login.png
+│   └── dashboard.png
+│
+├── README.md
+└── package.json
 ```
 
-The API will be available at `http://localhost:8080`
+---
 
-H2 console (dev): `http://localhost:8080/h2-console`
-- JDBC URL: `jdbc:h2:mem:tododb`
-- User: `sa`, Password: _(empty)_
+# Installation
 
-### 2. Start the Frontend
+## Clone the Repository
 
-**Requirements:** Node.js 18+
+```bash
+git clone https://github.com/Lakshman464/Todo-List.git
+```
+
+---
+
+## Frontend Setup
 
 ```bash
 cd frontend
@@ -58,76 +88,45 @@ npm install
 npm run dev
 ```
 
-Open `http://localhost:5173` in your browser.
-
 ---
 
-## REST API Reference
-
-### Projects
-
-| Method | Endpoint            | Description        |
-|--------|--------------------|--------------------|
-| GET    | /api/projects       | List all projects  |
-| GET    | /api/projects/{id}  | Get one project    |
-| POST   | /api/projects       | Create project     |
-| PUT    | /api/projects/{id}  | Update project     |
-| DELETE | /api/projects/{id}  | Delete project     |
-
-### Todos
-
-| Method | Endpoint                         | Description      |
-|--------|----------------------------------|------------------|
-| GET    | /api/projects/{id}/todos         | List todos       |
-| POST   | /api/projects/{id}/todos         | Create todo      |
-| GET    | /api/todos/{id}                  | Get one todo     |
-| PUT    | /api/todos/{id}                  | Update todo      |
-| PATCH  | /api/todos/{id}/toggle           | Toggle complete  |
-| DELETE | /api/todos/{id}                  | Delete todo      |
-
-### Example: Create a Project
+## Backend Setup
 
 ```bash
-curl -X POST http://localhost:8080/api/projects \
-  -H "Content-Type: application/json" \
-  -d '{"name":"My Project","description":"Testing","color":"#7C6FFF"}'
-```
-
-### Example: Add a Todo
-
-```bash
-curl -X POST http://localhost:8080/api/projects/1/todos \
-  -H "Content-Type: application/json" \
-  -d '{"title":"Fix bug","priority":"HIGH","completed":false}'
+cd backend
+mvn spring-boot:run
 ```
 
 ---
 
-## Features
+## Database Setup
 
-- ✅ Create / edit / delete **projects** with custom colors
-- ✅ Add / edit / delete / complete **tasks** per project
-- ✅ Task **priority** levels (High / Medium / Low)
-- ✅ Optional **due dates** with overdue highlighting
-- ✅ Filter tasks: All / Active / Done
-- ✅ Live **progress bar** per project
-- ✅ Dark-themed UI
+1. Open MySQL
 
-## Switching to PostgreSQL
+2. Create database:
 
-Replace H2 in `pom.xml`:
-```xml
-<dependency>
-  <groupId>org.postgresql</groupId>
-  <artifactId>postgresql</artifactId>
-  <scope>runtime</scope>
-</dependency>
+```sql
+CREATE DATABASE tododb;
 ```
 
-Update `application.properties`:
-```properties
-spring.datasource.url=jdbc:postgresql://localhost:5432/tododb
-spring.datasource.username=postgres
-spring.datasource.password=yourpassword
-spring.jpa.hibernate.ddl-auto=update
+3. Update database credentials in:
+
+```text
+application.properties
 ```
+
+---
+
+# GitHub Commands
+
+```bash
+git add .
+git commit -m "Updated README"
+git push
+```
+
+---
+
+# Author
+
+Lakshman
