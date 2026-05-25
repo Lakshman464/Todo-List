@@ -1,0 +1,12 @@
+com\todo\repository\TodoRepository.class
+com\todo\model\Project.class
+com\todo\service\TodoService.class
+com\todo\model\Project$ProjectBuilder.class
+com\todo\TodoApplication.class
+com\todo\model\Todo$Priority.class
+com\todo\repository\ProjectRepository.class
+com\todo\controller\TodoController.class
+com\todo\service\ProjectService.class
+com\todo\controller\ProjectController.class
+com\todo\model\Todo.class
+com\todo\model\Todo$TodoBuilder.class
